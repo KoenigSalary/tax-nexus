@@ -1,5 +1,5 @@
 steps:
-  # Build + publish image using buildpacks
+  # Build + publish image with buildpacks
   - name: "gcr.io/k8s-skaffold/pack"
     args:
       [
