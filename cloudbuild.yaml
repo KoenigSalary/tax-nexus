@@ -7,7 +7,7 @@ steps:
         "asia-south2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/voice-agent-api:$COMMIT_SHA",
         "--builder",
         "gcr.io/buildpacks/builder",
-        "--publish"
+        "--publish",
       ]
 
   # Deploy to Cloud Run
@@ -15,15 +15,20 @@ steps:
     entrypoint: gcloud
     args:
       [
-        "run", "deploy", "voice-agent-api",
-        "--image", "asia-south2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/voice-agent-api:$COMMIT_SHA",
-        "--region", "asia-south2",
-        "--platform", "managed",
-        "--quiet"
+        "run",
+        "deploy",
+        "voice-agent-api",
+        "--image",
+        "asia-south2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/voice-agent-api:$COMMIT_SHA",
+        "--region",
+        "asia-south2",
+        "--platform",
+        "managed",
+        "--quiet",
       ]
 
 images:
   - "asia-south2-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/voice-agent-api:$COMMIT_SHA"
 
-  options:
+options:
   logging: CLOUD_LOGGING_ONLY
